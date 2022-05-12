@@ -1,6 +1,7 @@
 from getpass import getpass
 from models.users import userModel
 
+
 def signIn():
     name = input('Nome: ')
     document = input('CPF: ')
@@ -16,4 +17,3 @@ def signIn():
         'document': document,
         'password': password
     }
-    

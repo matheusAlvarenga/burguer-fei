@@ -22,4 +22,3 @@ class Database:
 
             return False
         print('found')
-    

@@ -9,10 +9,9 @@ def main():
         selected = renderMainMenu()
 
         if(selected == '1'):
-                user = signIn()
-                if(not user):
-                    print('Já existe um usuário')
-
+            user = signIn()
+            if(not user):
+                print('Já existe um usuário')
 
 
 if __name__ == "__main__":

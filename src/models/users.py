@@ -1,5 +1,6 @@
 from classes.database import Database
-from parsers.user import userToString 
+from parsers.user import userToString
+
 
 class UserModel:
     filePath = 'tmp/users.txt'
@@ -17,5 +18,6 @@ class UserModel:
             return False
         else:
             return True
+
 
 userModel = UserModel()
