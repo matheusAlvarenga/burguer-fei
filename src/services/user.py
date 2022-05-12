@@ -6,7 +6,10 @@ def signIn():
     document = input('CPF: ')
     password = getpass('Senha: ')
 
-    userModel.createUser(name, document, password)
+    error = userModel.createUser(name, document, password)
+
+    if(error):
+        return False
 
     return {
         'name': name,

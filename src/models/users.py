@@ -6,10 +6,16 @@ class UserModel:
     database = Database(filePath)
 
     def createUser(self, name, document, password):
-        self.database.create(userToString({
-            'name': name,
-            'document': document,
-            'password': password
-        }))
+        exists = self.database.findOne(f'^{document},')
+
+        if(not exists):
+            self.database.create(userToString({
+                'name': name,
+                'document': document,
+                'password': password
+            }))
+            return False
+        else:
+            return True
 
 userModel = UserModel()
