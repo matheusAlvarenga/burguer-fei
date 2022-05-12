@@ -18,6 +18,17 @@ class Database:
     def delete(self):
         print('deleted')
 
+    def find(self, query=''):
+        responses = []
+
+        with open(self.filePath, mode='r') as database_file:
+            lines = database_file.readlines()
+            for line in lines:
+                if(findall(query, line)):
+                    responses.append(line)
+
+        return responses
+
     def findOne(self, query):
         with open(self.filePath, mode='r') as database_file:
             lines = database_file.readlines()
@@ -26,4 +37,3 @@ class Database:
                     return line
 
             return False
-        print('found')
