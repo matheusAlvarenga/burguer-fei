@@ -1,4 +1,5 @@
 from printers.mainmenu import renderMainMenu
+from services.order import createOrder
 from services.user import signIn
 from utils.clear_terminal import clear
 
@@ -17,6 +18,8 @@ def main():
                 print('Já existe um usuário com esse CPF!')
                 input('Pressione enter para voltar ao menu.')
                 continue
+            else:
+                createOrder(user['document'])
 
 
 if __name__ == "__main__":
