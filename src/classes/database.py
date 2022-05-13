@@ -37,3 +37,11 @@ class Database:
                     return line
 
             return False
+
+    def deleteMany(self, query):
+        with open(self.filePath, mode='r') as database_file:
+            lines = database_file.readlines()
+        with open(self.filePath, mode='w') as database_file:
+            for line in lines:
+                if(not findall(query, line)):
+                    database_file.write(line)
