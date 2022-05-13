@@ -13,5 +13,8 @@ class OrdersModel:
             'action': action,
         }))
 
+    def delete_orders(self, query):
+        self.database.deleteMany(query)
+
 
 orders_model = OrdersModel()
