@@ -34,6 +34,17 @@ def main():
                 input('Pressione enter para voltar ao menu.')
                 continue
 
+        elif(selected == '3'):
+            user = logIn()
+
+            if(not user):
+                clear()
+                print('Login errado. Tente novamente.')
+                input('Pressione enter para voltar ao menu.')
+                continue
+            else:
+                createOrder(user['document'])
+
 
 if __name__ == "__main__":
     main()
