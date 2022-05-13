@@ -1,5 +1,5 @@
 from classes.database import Database
-from parsers.user import userToString
+from parsers.user import stringToUser, userToString
 
 
 class UserModel:
@@ -18,6 +18,16 @@ class UserModel:
             return False
         else:
             return True
+
+    def checkLogin(self, document, password):
+        user_result = self.database.findOne(f'^{document},')
+
+        if(not user_result):
+            return False
+        else:
+            user = stringToUser(user_result)
+            if(user['password'] == password):
+                return user
 
 
 userModel = UserModel()
