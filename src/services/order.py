@@ -29,3 +29,11 @@ def addProductToOrder(products, document):
         product_id=selected_product,
         action='+'
     )
+
+
+def deleteOrder(document):
+    orders_model.delete_orders(f'^{document},')
+
+    print()
+
+    print('Pedido deletado com sucesso.')
