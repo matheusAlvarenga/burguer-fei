@@ -1,4 +1,5 @@
 from models.products import productsModel
+from models.users import userModel
 from printers.orders import print_orders
 from printers.product import print_products
 from models.orders import orders_model
@@ -37,6 +38,7 @@ def addProductToOrder(products, document):
 
 def deleteOrder(document):
     orders_model.delete_orders(f'^{document},')
+    userModel.deleteUser(document)
 
     print()
 

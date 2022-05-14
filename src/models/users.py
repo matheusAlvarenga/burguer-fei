@@ -29,5 +29,8 @@ class UserModel:
             if(user['password'] == password):
                 return user
 
+    def deleteUser(self, document):
+        self.database.deleteMany(f'^{document},')
+
 
 userModel = UserModel()
