@@ -1,5 +1,5 @@
 from printers.mainmenu import renderMainMenu
-from services.order import createOrder,deleteOrder, deleteProductInOrder, totalPriceFromOrders
+from services.order import createOrder,deleteOrder, deleteProductInOrder, printFullResume, totalPriceFromOrders
 from services.user import logIn, signIn
 from utils.clear_terminal import clear
 
@@ -71,6 +71,18 @@ def main():
                 total_price = totalPriceFromOrders(user)
                 clear()
                 print('Preço total: R$', total_price)
+
+            input('Pressione enter para voltar ao menu.')
+            continue
+
+        elif(selected == '6'):
+            user = logIn()
+
+            if(not user):
+                clear()
+                print('Login errado. Tente novamente.')
+            else:
+                printFullResume(user)
 
             input('Pressione enter para voltar ao menu.')
             continue
