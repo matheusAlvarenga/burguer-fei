@@ -116,3 +116,15 @@ def mergeProductsInOrders(orders):
         'merged_orders': merged_orders,
         'orders_id': orders_id
     }
+
+
+def totalPriceFromOrders(user):
+    orders = orders_model.get_users_orders(f'^{user["document"]},')
+    merged_orders = mergeProductsInOrders(orders)
+
+    total_price = 0
+
+    for order in merged_orders['merged_orders']:
+        total_price += order['total_price']
+
+    return total_price
