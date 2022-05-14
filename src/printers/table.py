@@ -6,7 +6,7 @@ def print_table(headers, body):
     for cell in body:
         all_values.append(str(cell))
 
-    min_cell_width = len(max(headers + all_values, key=len))
+    min_cell_width = int(len(max(headers + all_values, key=len)) / 2)
 
     full_line_width = len(headers) * (min_cell_width) + len(headers) + 1
 
