@@ -2,6 +2,7 @@ from models.products import productsModel
 from printers.orders import print_orders
 from printers.product import print_products
 from models.orders import orders_model
+from printers.resume import print_resume
 from utils.clear_terminal import clear
 from utils.find_one_in_array import find_one_in_array
 
@@ -128,3 +129,10 @@ def totalPriceFromOrders(user):
         total_price += order['total_price']
 
     return total_price
+
+
+def printFullResume(user):
+    orders = orders_model.get_users_orders(f'^{user["document"]},')
+    total_price = totalPriceFromOrders(user)
+
+    print_resume(user, orders, total_price)
