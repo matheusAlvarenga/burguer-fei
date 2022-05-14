@@ -2,7 +2,7 @@ from utils.clear_terminal import clear
 from printers.table import print_table
 
 
-def print_orders(products):
+def print_orders(orders):
     product_array = []
 
     mapped_products = list(map(lambda product: {
@@ -11,7 +11,7 @@ def print_orders(products):
         'product_price': product['product_price'],
         'quantity': product['quantity'],
         'total_price': product['total_price']
-    }, products))
+    }, orders))
 
     for product in mapped_products:
         product_array.append(list(product.values()))
